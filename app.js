@@ -123,7 +123,11 @@ window.del = async function(i){
 function render(){
   let grid = document.getElementById("grid");
   grid.innerHTML = "";
+if(sortMode === "az"){
+  data.sort((a,b)=> a.title.localeCompare(b.title));
+}
 
+data.forEach((d,i)=>{
   data.forEach((d,i)=>{
     if(d.category !== currentCategory) return;
 
