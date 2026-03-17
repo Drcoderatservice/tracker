@@ -149,7 +149,6 @@ function render(){
     grid.appendChild(card);
   });
 }
-// First load
 
 window.signup = async function(){
   let email = document.getElementById("email").value;
