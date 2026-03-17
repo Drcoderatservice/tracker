@@ -168,6 +168,27 @@ window.logout = async function(){
   await signOut(auth);
   alert("Logged out");
 }
+window.applySort = function(){
+  let option = document.getElementById("sortOption").value;
+
+  if(option === "az"){
+    data.sort((a,b)=> a.title.localeCompare(b.title));
+  }
+
+  else if(option === "za"){
+    data.sort((a,b)=> b.title.localeCompare(a.title));
+  }
+
+  else if(option === "new"){
+    data.sort((a,b)=> b.id.localeCompare(a.id));
+  }
+
+  else if(option === "old"){
+    data.sort((a,b)=> a.id.localeCompare(b.id));
+  }
+
+  render();
+}
 window.fixOldData = async function(){
   if(!currentUser){
     alert("Login first!");
