@@ -24,6 +24,7 @@ let viewMode = "poster";
 window.toggleView = function(){
   viewMode = viewMode === "poster" ? "list" : "poster";
   render();
+}
 
 // Change category
 window.setCategory = function(cat){
