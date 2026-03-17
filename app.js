@@ -141,3 +141,23 @@ function render(){
 }
 // First load
 loadData();
+window.signup = async function(){
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("password").value;
+
+  await createUserWithEmailAndPassword(auth, email, pass);
+  alert("Signup successful");
+}
+
+window.login = async function(){
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("password").value;
+
+  await signInWithEmailAndPassword(auth, email, pass);
+  alert("Login successful");
+}
+
+window.logout = async function(){
+  await signOut(auth);
+  alert("Logged out");
+}
