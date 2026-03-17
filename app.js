@@ -6,13 +6,14 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
 // Your Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyA59yWPD0HcKVoz6h5-3q1x221tbTaFIQ",
-  authDomain: "seriestracker-5014f.firebaseapp.com",
-  projectId: "seriestracker-5014f",
-  storageBucket: "seriestracker-5014f.firebasestorage.app",
-  messagingSenderId: "811925715046",
-  appId: "1:811925715046:web:2727e35e6fddb9f344d5a7"
-};
+    apiKey: "AIzaSyA59yWPDOHcKVozo6h5-3q1x221tbTaFIQ",
+    authDomain: "seriestracker-5014f.firebaseapp.com",
+    projectId: "seriestracker-5014f",
+    storageBucket: "seriestracker-5014f.firebasestorage.app",
+    messagingSenderId: "811925715046",
+    appId: "1:811925715046:web:2727e35e6fddb9f344d5a7",
+    measurementId: "G-MX8465KQRX"
+  };
 
 // Init Firebase
 const app = initializeApp(firebaseConfig);
