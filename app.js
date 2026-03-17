@@ -19,6 +19,11 @@ const db = getFirestore(app);
 
 let currentCategory = "Anime";
 let data = [];
+let viewMode = "poster";
+
+window.toggleView = function(){
+  viewMode = viewMode === "poster" ? "list" : "poster";
+  render();
 
 // Change category
 window.setCategory = function(cat){
@@ -126,11 +131,7 @@ function render(){
   <button class="edit" onclick="edit(${i})">Edit</button>
   <button class="del" onclick="del(${i})">X</button>
 </div>
-let viewMode = "poster";
 
-window.toggleView = function(){
-  viewMode = viewMode === "poster" ? "list" : "poster";
-  render();
 }
     `;
 
