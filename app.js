@@ -127,9 +127,18 @@ function render(){
   // 👇 SAFE SORT (copy of data, original ko mess nahi karega)
   let sortedData = [...data];
 
-  if(sortMode === "az"){
-    sortedData.sort((a,b)=> a.title.localeCompare(b.title));
-  }
+ if(sortMode === "az"){
+  sortedData.sort((a,b)=> a.title.localeCompare(b.title));
+}
+else if(sortMode === "za"){
+  sortedData.sort((a,b)=> b.title.localeCompare(a.title));
+}
+else if(sortMode === "new"){
+  sortedData.sort((a,b)=> (b.createdAt || 0) - (a.createdAt || 0));
+}
+else if(sortMode === "old"){
+  sortedData.sort((a,b)=> (a.createdAt || 0) - (b.createdAt || 0));
+}
 
   sortedData.forEach((d,i)=>{
     if(d.category !== currentCategory) return;
