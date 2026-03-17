@@ -121,8 +121,7 @@ function render(){
    card.innerHTML = `
   ${viewMode === "poster" && d.poster 
     ? `<img class="poster" src="${d.poster}">` 
-    : ''
-  }
+    : ''}
 
   <div class="title">${d.title}</div>
   <div class="meta">${d.watched}/${d.total} • ${d.status}</div>
