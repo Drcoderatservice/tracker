@@ -26,6 +26,9 @@ let viewMode = localStorage.getItem("viewMode") || "poster";
 
 window.toggleView = function(){
   viewMode = viewMode === "poster" ? "list" : "poster";
+
+  localStorage.setItem("viewMode", viewMode);
+
   render();
 }
 
