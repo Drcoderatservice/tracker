@@ -168,3 +168,18 @@ window.logout = async function(){
   await signOut(auth);
   alert("Logged out");
 }
+window.fixOldData = async function(){
+  const querySnapshot = await getDocs(collection(db, "tracker"));
+
+  querySnapshot.forEach(async (docSnap)=>{
+    let item = docSnap.data();
+
+    if(!item.userId){
+      await updateDoc(doc(db,"tracker",docSnap.id),{
+        userId: currentUser
+      });
+    }
+  });
+
+  alert("Old data fixed!");
+}
