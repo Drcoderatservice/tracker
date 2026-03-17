@@ -220,3 +220,7 @@ onAuthStateChanged(auth, (user)=>{
     document.getElementById("grid").innerHTML = "";
   }
 });
+window.applySort = function(){
+  sortMode = document.getElementById("sortOption").value;
+  render();
+}
