@@ -17,7 +17,8 @@ const firebaseConfig = {
 // Init Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
+const auth = getAuth(app);
+let currentUser = null;
 let currentCategory = "Anime";
 let data = [];
 let viewMode = "poster";
