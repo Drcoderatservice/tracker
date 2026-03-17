@@ -118,23 +118,20 @@ function render(){
     let card = document.createElement("div");
     card.className = "card";
 
-   card.innerHTML = `
-  ${viewMode === "poster" && d.poster 
-    ? `<img class="poster" src="${d.poster}">` 
-    : ''}
+    card.innerHTML = `
+      ${viewMode === "poster" && d.poster 
+        ? `<img class="poster" src="${d.poster}">` 
+        : ''}
 
-  <div class="title">${d.title}</div>
-  <div class="meta">${d.watched}/${d.total} • ${d.status}</div>
+      <div class="title">${d.title}</div>
+      <div class="meta">${d.watched}/${d.total} • ${d.status}</div>
 
-  <div class="actions">
-    <button class="plus" onclick="plus(${i})">+1</button>
-    <button onclick="minus(${i})">-1</button>
-    <button class="edit" onclick="edit(${i})">Edit</button>
-    <button class="del" onclick="del(${i})">X</button>
-  </div>
-`;
-
-}
+      <div class="actions">
+        <button class="plus" onclick="plus(${i})">+1</button>
+        <button onclick="minus(${i})">-1</button>
+        <button class="edit" onclick="edit(${i})">Edit</button>
+        <button class="del" onclick="del(${i})">X</button>
+      </div>
     `;
 
     grid.appendChild(card);
