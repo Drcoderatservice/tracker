@@ -22,7 +22,7 @@ const auth = getAuth(app);
 let currentUser = null;
 let currentCategory = "Anime";
 let data = [];
-let viewMode = "poster";
+let viewMode = localStorage.getItem("viewMode") || "poster";
 
 window.toggleView = function(){
   viewMode = viewMode === "poster" ? "list" : "poster";
