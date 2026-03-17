@@ -63,7 +63,17 @@ window.plus = async function(i){
   }
   loadData();
 }
+window.minus = async function(i){
+  let item = data[i];
 
+  if(item.watched > 0){
+    await updateDoc(doc(db,"tracker",item.id),{
+      watched: item.watched - 1
+    });
+  }
+
+  loadData();
+}
 // Edit full
 window.edit = async function(i){
   let item = data[i];
@@ -108,10 +118,11 @@ function render(){
       <div class="meta">${d.watched}/${d.total} • ${d.status}</div>
 
       <div class="actions">
-        <button class="plus" onclick="plus(${i})">+1</button>
-        <button class="edit" onclick="edit(${i})">Edit</button>
-        <button class="del" onclick="del(${i})">X</button>
-      </div>
+  <button class="plus" onclick="plus(${i})">+1</button>
+  <button onclick="minus(${i})">-1</button>
+  <button class="edit" onclick="edit(${i})">Edit</button>
+  <button class="del" onclick="del(${i})">X</button>
+</div>
     `;
 
     grid.appendChild(card);
