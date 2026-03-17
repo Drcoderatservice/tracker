@@ -118,7 +118,7 @@ function render(){
     let card = document.createElement("div");
     card.className = "card";
 
-    card.innerHTML = `
+   card.innerHTML = `
   ${viewMode === "poster" && d.poster 
     ? `<img class="poster" src="${d.poster}">` 
     : ''
