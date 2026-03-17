@@ -40,8 +40,12 @@ async function loadData(){
   data = [];
   const querySnapshot = await getDocs(collection(db, "tracker"));
   querySnapshot.forEach((docSnap)=>{
-    data.push({id: docSnap.id, ...docSnap.data()});
-  });
+  let item = {id: docSnap.id, ...docSnap.data()};
+  
+  if(item.userId === currentUser){
+    data.push(item);
+  }
+});
   render();
 }
 
