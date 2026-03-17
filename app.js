@@ -189,26 +189,7 @@ window.applySort = function(){
 
   render();
 }
-window.fixOldData = async function(){
-  if(!currentUser){
-    alert("Login first!");
-    return;
-  }
 
-  const querySnapshot = await getDocs(collection(db, "tracker"));
-
-  for(const docSnap of querySnapshot.docs){
-    let item = docSnap.data();
-
-    if(!item.userId){
-      await updateDoc(doc(db,"tracker",docSnap.id),{
-        userId: currentUser
-      });
-    }
-  }
-
-  alert("Old data fixed! Refresh now");
-}
 onAuthStateChanged(auth, (user)=>{
   if(user){
     currentUser = user.uid;
