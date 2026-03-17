@@ -150,7 +150,7 @@ function render(){
   });
 }
 // First load
-loadData();
+
 window.signup = async function(){
   let email = document.getElementById("email").value;
   let pass = document.getElementById("password").value;
