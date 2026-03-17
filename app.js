@@ -137,6 +137,5 @@ function render(){
     grid.appendChild(card);
   });
 }
-
 // First load
 loadData();
