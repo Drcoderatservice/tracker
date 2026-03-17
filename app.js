@@ -188,3 +188,15 @@ window.fixOldData = async function(){
 
   alert("Old data fixed! Refresh now");
 }
+onAuthStateChanged(auth, (user)=>{
+  if(user){
+    currentUser = user.uid;
+    loadData(); // login pe data load
+  } else {
+    currentUser = null;
+    data = [];
+    
+    // UI clear karo
+    document.getElementById("grid").innerHTML = "";
+  }
+});
