@@ -56,8 +56,10 @@ window.addItem = async function(){
   if(!title) return;
 
   await addDoc(collection(db,"tracker"),{
-    title, poster, watched, total, status, category: currentCategory
-  });
+  title, poster, watched, total, status,
+  category: currentCategory,
+  userId: currentUser
+});
 
   loadData();
 }
