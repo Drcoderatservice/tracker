@@ -169,9 +169,14 @@ window.logout = async function(){
   alert("Logged out");
 }
 window.fixOldData = async function(){
+  if(!currentUser){
+    alert("Login first!");
+    return;
+  }
+
   const querySnapshot = await getDocs(collection(db, "tracker"));
 
-  querySnapshot.forEach(async (docSnap)=>{
+  for(const docSnap of querySnapshot.docs){
     let item = docSnap.data();
 
     if(!item.userId){
@@ -179,7 +184,7 @@ window.fixOldData = async function(){
         userId: currentUser
       });
     }
-  });
+  }
 
-  alert("Old data fixed!");
+  alert("Old data fixed! Refresh now");
 }
