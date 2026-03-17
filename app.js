@@ -123,6 +123,12 @@ function render(){
   <button class="edit" onclick="edit(${i})">Edit</button>
   <button class="del" onclick="del(${i})">X</button>
 </div>
+let viewMode = "poster";
+
+window.toggleView = function(){
+  viewMode = viewMode === "poster" ? "list" : "poster";
+  render();
+}
     `;
 
     grid.appendChild(card);
