@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyTracker</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="logo">MyTracker</div>
+<nav>
+<button onclick="setCategory('Anime')">Anime</button>
+<button onclick="setCategory('Donghua')">Donghua</button>
+<button onclick="setCategory('Movies')">Movies</button>
+<button onclick="setCategory('WebSeries')">WebSeries</button>
+<button onclick="setCategory('KDrama')">KDrama</button>
+<button onclick="setCategory('CDrama')">CDrama</button>
+</nav>
+</header>
+
+<div class="container">
+
+<div class="controls">
+<input id="title" placeholder="Title">
+<input id="poster" placeholder="Poster URL">
+<input id="watched" type="number" placeholder="Watched">
+<input id="total" type="number" placeholder="Total">
+
+<select id="status">
+<option>Watching</option>
+<option>Completed</option>
+<option>Plan</option>
+</select>
+
+<button onclick="addItem()">Add</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+</div>
+
+<script src="app.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
