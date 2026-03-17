@@ -23,7 +23,7 @@ let currentUser = null;
 let currentCategory = "Anime";
 let data = [];
 let viewMode = localStorage.getItem("viewMode") || "poster";
-
+let sortMode = "az";
 window.toggleView = function(){
   viewMode = viewMode === "poster" ? "list" : "poster";
 
