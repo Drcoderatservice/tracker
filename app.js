@@ -35,6 +35,10 @@ window.toggleView = function(){
 // Change category
 window.setCategory = function(cat){
   currentCategory = cat;
+
+  let s = document.getElementById("search");
+  if(s) s.value = "";
+
   render();
 }
 
@@ -139,7 +143,7 @@ else if(sortMode === "new"){
 else if(sortMode === "old"){
   sortedData.sort((a,b)=> (a.createdAt || 0) - (b.createdAt || 0));
 }
-let searchText = document.getElementById("search")?.value?.toLowerCase() || "";
+
   sortedData.forEach((d)=>{
     if(d.category !== currentCategory) return;
       if(searchText && !d.title.toLowerCase().includes(searchText)) return;
