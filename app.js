@@ -143,7 +143,7 @@ else if(sortMode === "new"){
 else if(sortMode === "old"){
   sortedData.sort((a,b)=> (a.createdAt || 0) - (b.createdAt || 0));
 }
-
+if(searchText && !d.title.toLowerCase().includes(searchText)) return;
   sortedData.forEach((d)=>{
     if(d.category !== currentCategory) return;
       if(searchText && !d.title.toLowerCase().includes(searchText)) return;
