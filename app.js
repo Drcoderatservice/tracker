@@ -37,10 +37,12 @@ window.setCategory = function(cat){
   currentCategory = cat;
 
   let s = document.getElementById("search");
-  if(s) s.value = "";
+  if(s){
+    s.value = "";
+  }
 
   render();
-}
+};
 
 // Load data from Firebase
 async function loadData(){
