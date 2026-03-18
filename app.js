@@ -148,8 +148,9 @@ else if(sortMode === "old"){
 }
 if(searchText && !d.title.toLowerCase().includes(searchText)) return;
   sortedData.forEach((d)=>{
-    if(d.category !== currentCategory) return;
       if(searchText && !d.title.toLowerCase().includes(searchText)) return;
+    if(d.category !== currentCategory) return;
+     
       let i = data.findIndex(x => x.id === d.id);
 
     let card = document.createElement("div");
