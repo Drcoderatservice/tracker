@@ -126,7 +126,7 @@ window.del = async function(i){
 }
 
 // Render UI
-function render(){
+window.render = function(){
   let grid = document.getElementById("grid");
   grid.innerHTML = "";
 
