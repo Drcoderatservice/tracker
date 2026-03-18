@@ -37,7 +37,6 @@
 <input id="poster" placeholder="Poster URL">
 <input id="watched" type="number" placeholder="Watched">
 <input id="total" type="number" placeholder="Total">
-<input type="text" id="search" placeholder="Search..." oninput="render()">
 
 <select id="status">
 <option>Watching</option>
@@ -55,6 +54,7 @@
   <option value="za">Z → A</option>
 </select>
   <button onclick="toggleView()">Switch View</button>
+  <input type="text" id="search" placeholder="Search..." oninput="render()">
 </div>
 
 <div class="grid" id="grid"></div>
