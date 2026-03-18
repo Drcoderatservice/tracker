@@ -132,6 +132,7 @@ function render(){
 
   // 👇 SAFE SORT (copy of data, original ko mess nahi karega)
   let sortedData = [...data];
+    let searchText = document.getElementById("search")?.value.toLowerCase() || "";    
 
  if(sortMode === "az"){
   sortedData.sort((a,b)=> a.title.localeCompare(b.title));
