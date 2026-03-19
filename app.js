@@ -255,17 +255,22 @@ window.shareList = async function(){
 
   alert("Share link copied 🔥");
 }    
-// 🔥 LOAD SHARED LIST
-const params = new URLSearchParams(window.location.search);
-const sharedData = params.get("share");
+// 🔥 LOAD SHARED LIST (FIXED)
+window.loadSharedList = async function(){
 
-if(sharedData){
-  const decoded = JSON.parse(decodeURIComponent(sharedData));
+  const params = new URLSearchParams(window.location.search);
+  const listId = params.get("list");
 
-  data = decoded;
-  currentCategory = decoded[0]?.category || "Anime";
+  if(!listId) return;
 
-  render();
+  const querySnapshot = await getDocs(collection(db, "sharedLists"));
+
+  querySnapshot.forEach((docSnap)=>{
+    if(docSnap.id === listId){
+      data = docSnap.data().list;
+      render();
+    }
+  });
 
   alert("Shared list loaded 🚀");
 }
