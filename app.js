@@ -149,7 +149,7 @@ else if(sortMode === "old"){
     
   sortedData.forEach((d,index)=>{
       if(searchText && !d.title.toLowerCase().includes(searchText)) return;
-    if(d.category !== currentCategory) return;
+   if(currentCategory !== "ALL" && d.category !== currentCategory) return;
      
       let i = data.findIndex(x => x.id === d.id);
 
@@ -264,7 +264,7 @@ window.shareList = async function(){
 }    
 // 🔥 LOAD SHARED LIST (FIXED)
 window.loadSharedList = async function(){
-
+currentCategory = "ALL";
   const params = new URLSearchParams(window.location.search);
   const listId = params.get("list");
 
