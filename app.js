@@ -282,4 +282,4 @@ window.shareList = async function(){
   if(userData.length === 0){
     alert("List empty hai!");
     return;
-  }
+  });
