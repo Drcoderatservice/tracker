@@ -222,6 +222,7 @@ onAuthStateChanged(auth, (user)=>{
   if(user){
     currentUser = user.uid;
     loadData(); // login pe data load
+      loadSharedList();
   } else {
     currentUser = null;
     data = [];
