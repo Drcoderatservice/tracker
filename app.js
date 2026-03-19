@@ -275,11 +275,3 @@ window.loadSharedList = async function(){
 
   alert("Shared list loaded 🚀");
 }
-window.shareList = async function(){
-
-  let userData = data.filter(d => d.userId === currentUser);
-
-  if(userData.length === 0){
-    alert("List empty hai!");
-    return;
-  });
