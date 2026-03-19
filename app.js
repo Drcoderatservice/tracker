@@ -234,3 +234,21 @@ window.applySort = function(){
   sortMode = document.getElementById("sortOption").value;
   render();
 }
+// 🔥 SHARE FUNCTION
+window.shareList = function(){
+
+  let userData = data.filter(d => d.userId === currentUser);
+
+  if(userData.length === 0){
+    alert("List empty hai!");
+    return;
+  }
+
+  let encoded = encodeURIComponent(JSON.stringify(userData));
+
+  let url = `${window.location.origin}?share=${encoded}`;
+
+  navigator.clipboard.writeText(url);
+
+  alert("Link copied 🔥");
+}
