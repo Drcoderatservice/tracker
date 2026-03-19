@@ -277,16 +277,3 @@ window.shareList = async function(){
     alert("List empty hai!");
     return;
   }
-
-  // 🔥 Firebase me save
-  const docRef = await addDoc(collection(db, "sharedLists"), {
-    list: userData,
-    createdAt: Date.now()
-  });
-
-  let url = `${window.location.origin}?list=${docRef.id}`;
-
-  navigator.clipboard.writeText(url);
-
-  alert("Share link copied 🔥");
-}
