@@ -252,3 +252,17 @@ window.shareList = function(){
 
   alert("Link copied 🔥");
 }
+// 🔥 LOAD SHARED LIST
+const params = new URLSearchParams(window.location.search);
+const sharedData = params.get("share");
+
+if(sharedData){
+  const decoded = JSON.parse(decodeURIComponent(sharedData));
+
+  data = decoded;
+  currentCategory = decoded[0]?.category || "Anime";
+
+  render();
+
+  alert("Shared list loaded 🚀");
+}
