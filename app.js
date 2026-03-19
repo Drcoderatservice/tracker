@@ -221,13 +221,19 @@ window.applySort = function(){
 onAuthStateChanged(auth, (user)=>{
   if(user){
     currentUser = user.uid;
-    loadData(); // login pe data load
-      loadSharedList();
+
+    const params = new URLSearchParams(window.location.search);
+    const listId = params.get("list");
+
+    if(listId){
+      loadSharedList(); // 👈 only shared
+    } else {
+      loadData(); // 👈 normal
+    }
+
   } else {
     currentUser = null;
     data = [];
-    
-    // UI clear karo
     document.getElementById("grid").innerHTML = "";
   }
 });
