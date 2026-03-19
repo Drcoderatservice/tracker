@@ -250,7 +250,7 @@ window.shareList = async function(){
     createdAt: Date.now()
   });
 
-  let url = `${window.location.origin}?list=${docRef.id}`;
+  let url = `${window.location.origin}${window.location.pathname}?list=${docRef.id}`;
 
   navigator.clipboard.writeText(url);
 
