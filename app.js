@@ -234,8 +234,7 @@ window.applySort = function(){
   sortMode = document.getElementById("sortOption").value;
   render();
 }
-// 🔥 SHARE FUNCTION
-window.shareList = function(){
+window.shareList = async function(){
 
   let userData = data.filter(d => d.userId === currentUser);
 
@@ -244,14 +243,18 @@ window.shareList = function(){
     return;
   }
 
-  let encoded = encodeURIComponent(JSON.stringify(userData));
+  // 🔥 Firebase me save
+  const docRef = await addDoc(collection(db, "sharedLists"), {
+    list: userData,
+    createdAt: Date.now()
+  });
 
-  let url = `${window.location.origin}?share=${encoded}`;
+  let url = `${window.location.origin}?list=${docRef.id}`;
 
   navigator.clipboard.writeText(url);
 
-  alert("Link copied 🔥");
-}
+  alert("Share link copied 🔥");
+}    
 // 🔥 LOAD SHARED LIST
 const params = new URLSearchParams(window.location.search);
 const sharedData = params.get("share");
@@ -265,4 +268,25 @@ if(sharedData){
   render();
 
   alert("Shared list loaded 🚀");
+}
+window.shareList = async function(){
+
+  let userData = data.filter(d => d.userId === currentUser);
+
+  if(userData.length === 0){
+    alert("List empty hai!");
+    return;
+  }
+
+  // 🔥 Firebase me save
+  const docRef = await addDoc(collection(db, "sharedLists"), {
+    list: userData,
+    createdAt: Date.now()
+  });
+
+  let url = `${window.location.origin}?list=${docRef.id}`;
+
+  navigator.clipboard.writeText(url);
+
+  alert("Share link copied 🔥");
 }
